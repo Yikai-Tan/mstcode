@@ -1,5 +1,5 @@
 function calculateAnimalsInPettingZoo(totalAnimals, totalFeet) {
-    return( ((totalFeet/2)==totalAnimals)? totalAnimals:totalAnimals-((totalFeet/2)-totalAnimals) )
+    return (totalAnimals-((totalFeet/2)-totalAnimals))
 }
 
 
