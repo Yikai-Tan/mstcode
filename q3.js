@@ -11,18 +11,29 @@ function canBeWinner(ticketNumber) {
 }
 
 function findWinner(firstTicketNumber, lastTicketNumber, n) {
-    let anarr=[],trufy=[],onlyyes=[];
-    for(let i = 0; i< (lastTicketNumber-firstTicketNumber);i++,trufy.push(canBeWinner(firstTicketNumber+i))){
+    anarr = []
+    trufy = []
+    onlyyes =[]
+    for(let i = 0; i< (lastTicketNumber-firstTicketNumber);i++){
+        trufy.push(canBeWinner(firstTicketNumber+i))
         if(canBeWinner(firstTicketNumber+i)==true){
-            anarr.push(firstTicketNumber+i) , onlyyes.push(canBeWinner(firstTicketNumber+i))
+            anarr.push(firstTicketNumber+i)
+            onlyyes.push(canBeWinner(firstTicketNumber+i))
         }
         if(anarr.length>(n+1)){
             break
         }
     }
-    return(((trufy.includes(true)==false))?-1:(onlyyes.length<n)?-1:anarr[n-1])
-
-
+    console.log(anarr,trufy,onlyyes)
+    if((trufy.includes(true)==false)){
+        return -1
+    }
+    else if(onlyyes.length<n){
+        return -1
+    }
+    else{
+        return anarr[n-1]
+        }
 }
 
 
